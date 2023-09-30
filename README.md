@@ -3,7 +3,6 @@
 ## Разработчики
 
 - [Дмитрий Степанов](https://t.me/mack1ch). Junior frontend developer
-- [Сергей Сазонов](https://t.me/OraPoulpe). Junior frontend developer
 
 ## Технологии
 
