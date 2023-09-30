@@ -1,0 +1,18 @@
+.authSection {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    justify-content: center;
+    align-items: center;
+
+    .authHelper {
+        user-select: none;
+        color: #222;
+        font-feature-settings: 'clig' off, 'liga' off;
+        font-family: Lab Grotesque;
+        font-size: 15px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+    }
+}
