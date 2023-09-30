@@ -1,0 +1,32 @@
+{
+    "name": "sample",
+    "version": "0.1.0",
+    "private": true,
+    "scripts": {
+        "dev": "next dev",
+        "build": "next build",
+        "start": "next start",
+        "lint": "next lint"
+    },
+    "dependencies": {
+        "@types/node": "20.5.1",
+        "@types/react": "18.2.20",
+        "@types/react-dom": "18.2.7",
+        "eslint": "8.47.0",
+        "eslint-config-next": "13.4.19",
+        "next": "13.4.19",
+        "react": "18.2.0",
+        "react-dom": "18.2.0",
+        "react-input-mask": "3.0.0-alpha.2",
+        "saas": "^1.0.0",
+        "sass": "^1.66.1",
+        "styled-components": "^6.0.7",
+        "ts-pattern": "^5.0.5",
+        "typescript": "5.1.6"
+    },
+    "devDependencies": {
+        "@types/lodash.throttle": "^4.1.7",
+        "@types/react-input-mask": "3.0.2",
+        "react-input-mask": "3.0.0-alpha.2"
+    }
+}
