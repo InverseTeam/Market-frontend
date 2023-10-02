@@ -45,10 +45,10 @@ export const AuthCard = () => {
             });
 
             setCookie('accessToken', loginUser.data.auth_token, { expires: 30, path: '/' });
-            router.prefetch('/admin');
+            router.prefetch('/admin/sale');
             const accessToken = getAccessToken();
             if (accessToken) {
-                router.push('/admin');
+                router.push('/admin/sale');
             }
             handleLoadingStart();
         } catch (e) {
