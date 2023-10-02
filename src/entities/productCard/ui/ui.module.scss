@@ -1,0 +1,114 @@
+.card {
+    border-radius: 8px;
+    background: #f8f7f5;
+    box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.04), 0px 4px 4px 0px rgba(0, 0, 0, 0.08);
+
+    display: flex;
+    width: 225px;
+    height: 300px;
+    padding: 16px;
+    flex-direction: column;
+    margin-bottom: 64px;
+    gap: 16px;
+    flex-shrink: 0;
+
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+        width: 0;
+        background: transparent;
+    }
+    &:hover {
+        cursor: pointer;
+    }
+
+    .img {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .prodInfo_position {
+        display: flex;
+        justify-content: flex-start;
+        gap: 6px;
+        .info {
+            display: flex;
+            align-items: center;
+            justify-self: start;
+            gap: 6px;
+            .price {
+                color: #ff8d28;
+                text-align: center;
+                font-family: Lab Grotesque;
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 500;
+                line-height: 140%; /* 22.4px */
+            }
+            .quantity {
+                color: #222;
+                text-align: center;
+                font-family: Lab Grotesque;
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 140%; /* 22.4px */
+            }
+        }
+    }
+    .prod_title {
+        color: #222;
+        font-family: Lab Grotesque;
+        font-size: 16px;
+        font-style: normal;
+        text-overflow: ellipsis;
+        height: 36px;
+        white-space: wrap;
+        font-weight: 400;
+        line-height: normal;
+        overflow: hidden;
+    }
+}
+// Scroll settings
+.layout {
+    position: relative;
+
+    .list {
+        display: flex;
+        gap: 32px;
+        overflow-x: auto;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+
+        &::-webkit-scrollbar {
+            width: 0;
+            background: transparent;
+        }
+    }
+}
+
+.btnChange {
+    display: flex;
+    height: 36px;
+    width: 100%;
+    gap: 8px;
+    padding: 8px 32px 8px 32px;
+    justify-content: center;
+    align-items: center;
+    flex: 1 0 0;
+    color: #fff;
+    font-family: Lab Grotesque;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    border-radius: 12px;
+    background: #ffac4d;
+    transition: all 0.2s;
+
+    &:hover {
+        cursor: pointer;
+        background: #ff9e2e;
+    }
+}

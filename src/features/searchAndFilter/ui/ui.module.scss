@@ -1,0 +1,19 @@
+.header {
+    user-select: none;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding-top: 32px;
+    margin-bottom: 16px;
+}
+.modal {
+    .modalBody {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+    }
+    .modalFooter {
+        display: flex;
+        gap: 8px;
+    }
+}

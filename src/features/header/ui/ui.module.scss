@@ -1,0 +1,30 @@
+.header {
+    border-right: 1px solid rgba(0, 0, 0, 0.1);
+    background: #f0f5f1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: fixed;
+
+    left: 0;
+    top: 0;
+    height: 100vh;
+    width: 270px;
+    padding: 24px;
+    .layout {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+}
+
+.section {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.navElements {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}

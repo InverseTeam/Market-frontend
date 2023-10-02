@@ -1,0 +1,35 @@
+.title {
+    color: #222;
+    font-family: Lab Grotesque;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.sectionWrap {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    .blockLayout {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        .block_title {
+            color: #a4a4a4;
+            font-family: Lab Grotesque;
+            font-size: 20px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+        }
+        .textStyle {
+            color: #222;
+            font-family: Lab Grotesque;
+            font-size: 18px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+        }
+    }
+}

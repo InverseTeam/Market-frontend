@@ -1,0 +1,9 @@
+.cardStyle {
+    width: 360px;
+    height: 360px;
+    user-select: none;
+    flex-shrink: 0;
+    border-radius: 24px;
+    overflow: hidden;
+    border: 1.5px solid rgba(0, 0, 0, 0.08);
+}

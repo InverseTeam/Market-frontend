@@ -1,0 +1,18 @@
+$textColor: #757575;
+
+.navWrap {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: default;
+    user-select: none;
+
+    .textStyles {
+        color: $textColor;
+        font-family: Lab Grotesque;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 20px;
+    }
+}

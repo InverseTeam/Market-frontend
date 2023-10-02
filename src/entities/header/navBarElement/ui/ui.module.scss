@@ -1,0 +1,71 @@
+.layout {
+    width: 100%;
+
+    .element {
+        display: flex;
+        padding: 10px 12px;
+        justify-self: center;
+        gap: 12px;
+
+        align-self: center;
+        justify-content: space-between;
+        align-items: center;
+        border-radius: 8px;
+        background: #f0f5f1;
+        transition: all 0.2s;
+        cursor: pointer;
+        .elementLayout {
+            display: flex;
+            gap: 12px;
+            .leftIcon {
+                display: flex;
+                height: 24px;
+            }
+            .title {
+                display: flex;
+                align-items: center;
+                color: #222;
+                font-family: Lab Grotesque;
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: normal;
+            }
+        }
+
+        .rightIcon {
+            display: flex;
+            height: 16px;
+            overflow: auto;
+            text-align: right;
+        }
+    }
+    .dropDown {
+        margin-top: 8px;
+        display: flex;
+        flex-direction: column;
+        justify-self: center;
+        gap: 8px;
+
+        background: #f0f5f1;
+        .element {
+            display: flex;
+            width: 200px;
+            padding: 4px 8px 4px 40px;
+            align-items: flex-start;
+            gap: 8px;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        .title {
+            display: flex;
+            align-items: center;
+            color: #222;
+            font-family: Lab Grotesque;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+        }
+    }
+}

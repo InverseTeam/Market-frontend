@@ -1,0 +1,15 @@
+.cardStyle {
+    border-radius: 16px;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+
+    width: 100px;
+    height: 100px;
+    flex-shrink: 0;
+
+    overflow: hidden;
+    user-select: none;
+
+    &:hover {
+        cursor: pointer;
+    }
+}

@@ -1,0 +1,22 @@
+.widgetLayout {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-left: 320px;
+    margin-right: 40px;
+    margin-top: 40px;
+    padding-bottom: 40px;
+
+    .product_wrap {
+        display: flex;
+        justify-content: space-between;
+
+        .productInfoLayout {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            align-items: flex-start;
+            max-width: 560px;
+        }
+    }
+}

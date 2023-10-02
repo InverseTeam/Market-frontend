@@ -9,6 +9,7 @@
         "lint": "next lint"
     },
     "dependencies": {
+        "@skbkontur/icons": "^1.5.0",
         "@skbkontur/react-ui": "^4.16.0",
         "@types/node": "20.5.1",
         "@types/react": "18.2.20",
@@ -21,6 +22,7 @@
         "react": "18.2.0",
         "react-dom": "18.2.0",
         "react-input-mask": "3.0.0-alpha.2",
+        "react-scroll": "^1.8.9",
         "saas": "^1.0.0",
         "sass": "^1.66.1",
         "styled-components": "^6.0.7",

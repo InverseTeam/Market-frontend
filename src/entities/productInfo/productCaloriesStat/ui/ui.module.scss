@@ -1,0 +1,36 @@
+.statSectionWrap {
+    display: flex;
+    gap: 40px;
+
+    .columnWrap {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+        align-items: flex-start;
+
+        .textStyles {
+            color: #000;
+            font-family: Lab Grotesque;
+            font-size: 24px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+        }
+        .infoStyles {
+            color: #a4a4a4;
+            font-family: Lab Grotesque;
+            font-size: 20px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+        }
+    }
+}
+.title {
+    color: #222;
+    font-family: Lab Grotesque;
+    font-size: 26px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}

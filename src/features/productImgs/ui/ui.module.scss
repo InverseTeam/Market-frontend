@@ -1,0 +1,10 @@
+.layout {
+    display: flex;
+    gap: 32px;
+
+    .smallImgPosition {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+}
