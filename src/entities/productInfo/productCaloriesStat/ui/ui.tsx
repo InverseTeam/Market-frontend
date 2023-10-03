@@ -49,7 +49,7 @@ export const ProductCaloriesStat = ({
                                     onValueChange={(value: string) => handleKcalChange(value)}
                                     value={textAreaKcal}
                                     size="medium"
-                                    width="86px"
+                                    width="96px"
                                     type="number"
                                 />
                                 <h5 className={styles.infoStyles}>ккал</h5>
@@ -59,7 +59,7 @@ export const ProductCaloriesStat = ({
                                     onValueChange={(value: string) => handleSquirrelsChange(value)}
                                     value={textAreaSquirrels}
                                     size="medium"
-                                    width="86px"
+                                    width="96px"
                                     type="number"
                                 />
                                 <h5 className={styles.infoStyles}>белки</h5>
@@ -69,7 +69,7 @@ export const ProductCaloriesStat = ({
                                     onValueChange={(value: string) => handleFatsChange(value)}
                                     value={textAreaFats}
                                     size="medium"
-                                    width="86px"
+                                    width="96px"
                                     type="number"
                                 />
                                 <h5 className={styles.infoStyles}>жиры</h5>
@@ -78,7 +78,7 @@ export const ProductCaloriesStat = ({
                                 <Input
                                     size="medium"
                                     type="number"
-                                    width="86px"
+                                    width="96px"
                                     onValueChange={(value: string) =>
                                         handleCarbohydratesChange(value)
                                     }

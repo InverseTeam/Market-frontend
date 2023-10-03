@@ -39,4 +39,5 @@ const myTheme = ThemeFactory.create({
     textareaFontSizeMedium: '32px',
     textareaPaddingXMedium: '8px',
     textareaPaddingYMedium: '8px',
+    textareaLineHeightMedium: '38px',
 });

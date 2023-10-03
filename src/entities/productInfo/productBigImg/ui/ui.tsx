@@ -13,8 +13,8 @@ export const ProductBigImg: FC<ProductBigImgProps> = ({ newImg, defaultImg }) =>
             <article className={styles.cardStyle}>
                 <Image
                     src={newImg ? newImg : defaultImg}
-                    width={360}
-                    height={360}
+                    width={400}
+                    height={400}
                     alt="MainProductPhoto"
                 />
             </article>

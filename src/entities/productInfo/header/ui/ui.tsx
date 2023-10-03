@@ -1,5 +1,6 @@
+'use client';
 import styles from './ui.module.scss';
-
+import { useRouter } from 'next/navigation';
 export const ProductInfoHeader = ({
     productType,
     productCategory,
@@ -9,10 +10,13 @@ export const ProductInfoHeader = ({
     productCategory: string;
     productName: string;
 }) => {
+    const router = useRouter();
     return (
         <>
             <nav className={styles.navWrap}>
-                <span className={styles.textStyles}>{productType}</span>
+                <span onClick={() => router.back()} className={styles.textStyles}>
+                    {productType}
+                </span>
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="18"

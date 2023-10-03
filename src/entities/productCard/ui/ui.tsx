@@ -2,7 +2,7 @@
 
 import styles from './ui.module.scss';
 import Image from 'next/image';
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import { Get } from '../model';
 import { ProductCardSkeleton } from '../skeleton';
 import { useRouter } from 'next/navigation';
@@ -30,18 +30,17 @@ export const ProductCard = () => {
                 <ul className={styles.list}>
                     {productData
                         ? productData.map((el: any) => (
-                              <article
-                                  onClick={() => router.push(`/admin/sale/${el.id}`)}
-                                  key={el.id}
-                                  className={styles.card}>
+                              <article key={el.id} className={styles.card}>
                                   <Image
                                       className={styles.img}
                                       src={el.thumbnailUrl}
                                       width={130}
+                                      onClick={() => router.push(`/admin/sale/${el.id}`)}
                                       height={130}
                                       alt="ProductCard"
                                   />
                                   <dl
+                                      onClick={() => router.push(`/admin/sale/${el.id}`)}
                                       style={{
                                           display: 'flex',
                                           flexDirection: 'column',
@@ -65,7 +64,7 @@ export const ProductCard = () => {
                                   </dl>
                                   <button
                                       className={styles.btnChange}
-                                      onClick={() => router.push(`/admin/sale/${el.id}`)}>
+                                      onClick={() => router.push(`/admin/sale/change/${el.id}`)}>
                                       <svg
                                           xmlns="http://www.w3.org/2000/svg"
                                           width="18"
