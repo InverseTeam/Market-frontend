@@ -4,23 +4,28 @@ import { ThemeContext, ThemeFactory, Input, Modal, Checkbox, Button } from '@skb
 import styles from './ui.module.scss';
 import { Filter } from '@/entities/icons/filter';
 import { useState, useEffect } from 'react';
-import { CheckBoxData, CheckBoxDataProps } from '../data';
+
+import { Get } from '../data';
+import { ProductCategoryTypes } from '@/shared/interface';
 export const SearchAndFilter = () => {
     const [filterOpen, setFilterOpen] = useState<boolean>(false);
+    const [categoryData, setCategoryData] = useState<ProductCategoryTypes[] | null>(null);
     const [checkBoxStates, setCheckBoxStates] = useState(
-        CheckBoxData.map((el) => ({ id: el.id, checked: false })),
+        Array.isArray(categoryData)
+            ? categoryData?.map((el) => ({ id: el.id, checked: false }))
+            : undefined,
     );
     const [modalBtnDisabled, setButtonDisabled] = useState(true);
 
     function onValueChange(id: number, newValue: boolean) {
         setCheckBoxStates((prevState) =>
-            prevState.map((checkbox) =>
+            prevState?.map((checkbox) =>
                 checkbox.id === id ? { ...checkbox, checked: newValue } : checkbox,
             ),
         );
     }
     useEffect(() => {
-        const atLeastOneChecked = checkBoxStates.some((checkbox) => checkbox.checked);
+        const atLeastOneChecked = checkBoxStates?.some((checkbox) => checkbox.checked);
         setButtonDisabled(!atLeastOneChecked);
     }, [checkBoxStates]);
     function renderModal() {
@@ -29,8 +34,8 @@ export const SearchAndFilter = () => {
                 <Modal width="512px" className={styles.modal} onClose={() => setFilterOpen(false)}>
                     <Modal.Header>Категории</Modal.Header>
                     <Modal.Body className={styles.modalBody}>
-                        {CheckBoxData.map((el: CheckBoxDataProps) => {
-                            const checkboxState = checkBoxStates.find(
+                        {categoryData?.map((el: ProductCategoryTypes) => {
+                            const checkboxState = checkBoxStates?.find(
                                 (checkbox) => checkbox.id === el.id,
                             );
                             return (
@@ -39,7 +44,7 @@ export const SearchAndFilter = () => {
                                     onValueChange={(newValue) => onValueChange(el.id, newValue)}
                                     size="medium"
                                     key={el.id}>
-                                    {el.title}
+                                    {el.name}
                                 </Checkbox>
                             );
                         })}
@@ -62,7 +67,13 @@ export const SearchAndFilter = () => {
             </ThemeContext.Provider>
         );
     }
-
+    useEffect(() => {
+        const getEvent = async () => {
+            const fetchEvent: ProductCategoryTypes[] = await Get();
+            setCategoryData(fetchEvent);
+        };
+        getEvent();
+    }, []);
     return (
         <>
             <ThemeContext.Provider value={myTheme}>

@@ -11,6 +11,8 @@ import { UserTypes } from '@/shared/interface';
 
 export interface NavBarDesktopProps {}
 
+const BASE_URL = '/users/auth/users/me/';
+
 export const NavBarDesktop: FC<NavBarDesktopProps> = () => {
     const [activeElementID, setActiveElementID] = useState<number>(0);
     const [middleSectionData, setMiddleSectionData] =
@@ -44,7 +46,7 @@ export const NavBarDesktop: FC<NavBarDesktopProps> = () => {
         );
     }, [activeElementID]);
 
-    /*   useEffect(() => {
+    useEffect(() => {
         const fetchData = async () => {
             try {
                 const response = await instanceLogged.get(BASE_URL);
@@ -55,7 +57,7 @@ export const NavBarDesktop: FC<NavBarDesktopProps> = () => {
         };
         fetchData();
     }, []);
-*/
+
     return (
         <header className={styles.header}>
             <span className={styles.layout}>
@@ -107,7 +109,7 @@ export const NavBarDesktop: FC<NavBarDesktopProps> = () => {
                                             }
                                             id={4}
                                             title={getFullName()}
-                                            link="/profile"
+                                            link="/admin/profile"
                                             icon={User}
                                             elements={navBarElements.elements}
                                         />

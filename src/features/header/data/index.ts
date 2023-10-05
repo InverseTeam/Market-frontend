@@ -2,7 +2,7 @@ import { NavBarElementProps } from '@/entities/header/navBarElement';
 import Goods from '../../../../public/globalIcons/goods.svg';
 import Stat from '../../../../public/globalIcons/statistics.svg';
 import User from '../../../../public/globalIcons/user.svg';
-import Card from '../../../../public/globalIcons/cards.svg';
+import Bag from '../../../../public/globalIcons/Bag.svg';
 export const middleSectionElements: NavBarElementProps[] = [
     {
         id: 0,
@@ -13,7 +13,7 @@ export const middleSectionElements: NavBarElementProps[] = [
             {
                 id: 0,
                 title: 'Новый товар',
-                link: '/admin',
+                link: '/admin/create',
             },
             {
                 id: 1,
@@ -27,7 +27,7 @@ export const middleSectionElements: NavBarElementProps[] = [
             },
             {
                 id: 3,
-                title: 'Подбрки',
+                title: 'Подборки',
                 link: '/',
             },
         ],
@@ -40,9 +40,9 @@ export const middleSectionElements: NavBarElementProps[] = [
     },
     {
         id: 2,
-        title: 'Карточки',
+        title: 'Заказы',
         link: '/',
-        icon: Card,
+        icon: Bag,
     },
 ];
 

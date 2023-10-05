@@ -1,0 +1,57 @@
+.wrap {
+    border-radius: 16px;
+    background: #fff;
+    padding: 32px;
+    width: 75vw;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    .user {
+        display: flex;
+        gap: 24px;
+        align-items: center;
+        .user__fullName {
+            color: #222;
+            font-family: Lab Grotesque;
+            font-size: 32px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: normal;
+            letter-spacing: 0.64px;
+        }
+    }
+    .user__info {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        align-items: flex-start;
+        .user_info_line {
+            display: flex;
+            gap: 24px;
+            align-items: center;
+            .user_info_line_head {
+                display: flex;
+                gap: 16px;
+                align-items: center;
+                .line_title {
+                    color: #222;
+                    text-align: center;
+                    font-family: Lab Grotesque;
+                    font-size: 22px;
+                    font-style: normal;
+                    font-weight: 500;
+                    line-height: 22px;
+                }
+            }
+            .line_data {
+                color: #222;
+                font-family: Lab Grotesque;
+                font-size: 22px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: normal;
+                letter-spacing: 0.44px;
+            }
+        }
+    }
+}

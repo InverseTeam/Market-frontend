@@ -1,0 +1,14 @@
+.navWrap {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: default;
+    user-select: none;
+
+    .textStyles {
+        background: #e7e3dc;
+        border-radius: 4px;
+        width: 160px;
+        height: 24px;
+    }
+}

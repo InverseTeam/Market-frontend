@@ -3,12 +3,18 @@
 import styles from './ui.module.scss';
 import { useState, FC } from 'react';
 import { Textarea, ThemeContext, ThemeFactory, Input } from '@skbkontur/react-ui';
+import { ProductDescriptionSkeleton } from '../skeleton/ui/ui';
 export interface ProductDescriptionProps {
-    description: string;
-    compound: string;
-    storageConditions: string;
-    weight: string;
+    description?: string | undefined;
+    compound?: string | undefined;
+    storageConditions?: string | undefined;
+    weight?: string | undefined;
+    setDescription?: (description: string) => void;
+    setCompound?: (compound: string) => void;
+    setStorageConditions?: (storageConditions: string) => void;
+    setWeight?: (weight: string) => void;
     isChange?: boolean;
+    skeleton?: boolean;
 }
 
 export const ProductDescription: FC<ProductDescriptionProps> = ({
@@ -17,40 +23,29 @@ export const ProductDescription: FC<ProductDescriptionProps> = ({
     storageConditions,
     weight,
     isChange = false,
+    skeleton = false,
+    setCompound,
+    setDescription,
+    setStorageConditions,
+    setWeight,
 }) => {
-    const [textAreaDescription, setTextAreaDescription] = useState<string>(description);
-    const [textAreaCompound, setTextAreaCompound] = useState<string>(compound);
-    const [inputStorageConditions, setInputStorageConditions] = useState<string>(storageConditions);
-    const [inputWeight, setInputWeight] = useState<string>(weight);
-    const handleTextareaDescriptionChange = (value: string) => {
-        setTextAreaDescription(value);
-    };
-    const handleTextareaCompoundChange = (value: string) => {
-        setTextAreaCompound(value);
-    };
-    const handleInputConditionsChange = (value: string) => {
-        setInputStorageConditions(value);
-    };
-    const handleInputWeightChange = (value: string) => {
-        setInputWeight(value);
-    };
     return (
         <>
             <ThemeContext.Provider value={myTheme}>
                 <div style={{ width: '100%' }}>
-                    <h4 className={styles.title} style={{ marginBottom: '16px' }}>
-                        О товаре
-                    </h4>
-                    {isChange ? (
+                    {skeleton === false && (
+                        <h4 className={styles.title} style={{ marginBottom: '16px' }}>
+                            О товаре
+                        </h4>
+                    )}
+                    {isChange && skeleton === false ? (
                         <section className={styles.sectionWrap}>
                             <span className={styles.blockLayout}>
                                 <h5 className={styles.block_title}>Описание</h5>
                                 <Textarea
-                                    onValueChange={(value: string) =>
-                                        handleTextareaDescriptionChange(value)
-                                    }
+                                    onValueChange={setDescription}
                                     size="medium"
-                                    value={textAreaDescription}
+                                    value={description}
                                     width="100%"
                                     autoResize
                                 />
@@ -58,11 +53,9 @@ export const ProductDescription: FC<ProductDescriptionProps> = ({
                             <span className={styles.blockLayout}>
                                 <h5 className={styles.block_title}>Состав</h5>
                                 <Textarea
-                                    onValueChange={(value: string) =>
-                                        handleTextareaCompoundChange(value)
-                                    }
+                                    onValueChange={setCompound}
                                     size="medium"
-                                    value={textAreaCompound}
+                                    value={compound}
                                     width="100%"
                                     autoResize
                                 />
@@ -73,24 +66,16 @@ export const ProductDescription: FC<ProductDescriptionProps> = ({
                                 </h5>
                                 <Input
                                     size="medium"
-                                    onValueChange={(value: string) =>
-                                        handleInputConditionsChange(value)
-                                    }
-                                    value={inputStorageConditions}
+                                    onValueChange={setStorageConditions}
+                                    value={storageConditions}
                                 />
                             </span>
                             <span className={styles.blockLayout}>
                                 <h5 className={styles.block_title}>Вес/объем</h5>
-                                <Input
-                                    size="medium"
-                                    onValueChange={(value: string) =>
-                                        handleInputWeightChange(value)
-                                    }
-                                    value={inputWeight}
-                                />
+                                <Input size="medium" onValueChange={setWeight} value={weight} />
                             </span>
                         </section>
-                    ) : (
+                    ) : isChange === false && skeleton === false ? (
                         <section className={styles.sectionWrap}>
                             <span className={styles.blockLayout}>
                                 <h5 className={styles.block_title}>Описание</h5>
@@ -111,6 +96,8 @@ export const ProductDescription: FC<ProductDescriptionProps> = ({
                                 <p className={styles.textStyle}>{weight}</p>
                             </span>
                         </section>
+                    ) : (
+                        skeleton && <ProductDescriptionSkeleton />
                     )}
                 </div>
             </ThemeContext.Provider>

@@ -1,0 +1,16 @@
+.layout {
+    display: flex;
+    gap: 50px;
+    .blockWrap {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        align-items: flex-start;
+        .blockTitle {
+            border-radius: 2px;
+            background: #e7e3dc;
+            width: 100px;
+            height: 80px;
+        }
+    }
+}

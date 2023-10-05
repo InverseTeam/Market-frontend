@@ -3,37 +3,33 @@
 import styles from './ui.module.scss';
 import Image from 'next/image';
 import { useState, useEffect } from 'react';
-import { Get } from '../model';
 import { ProductCardSkeleton } from '../skeleton';
 import { useRouter } from 'next/navigation';
-type ProductType = {
-    id: number;
-    name: string;
-    thumbnailUrl: any;
-};
+import { FetchProductData, GetProducts } from '../model';
+import { ProductTypes } from '@/shared/interface';
 
 export const ProductCard = () => {
-    const [productData, setProductData] = useState<ProductType[] | null>(null);
+    const [productData, setProductData] = useState<any[] | null>(null);
     const router = useRouter();
     useEffect(() => {
         const getEvent = async () => {
-            const fetchEvent: any = await Get();
+            const fetchEvent: any = await GetProducts(1);
             setProductData(fetchEvent);
         };
         getEvent();
     }, []);
-    console.log(productData);
+
     const skeletonMap = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
     return (
         <>
             <section className={styles.layout}>
                 <ul className={styles.list}>
-                    {productData
-                        ? productData.map((el: any) => (
+                    {Array.isArray(productData)
+                        ? productData?.map((el: ProductTypes) => (
                               <article key={el.id} className={styles.card}>
                                   <Image
                                       className={styles.img}
-                                      src={el.thumbnailUrl}
+                                      src={el.cover}
                                       width={130}
                                       onClick={() => router.push(`/admin/sale/${el.id}`)}
                                       height={130}
@@ -60,7 +56,7 @@ export const ProductCard = () => {
                                               <span className={styles.quantity}>230 шт</span>
                                           </dd>
                                       </span>
-                                      <h4 className={styles.prod_title}>{el.title}</h4>
+                                      <h4 className={styles.prod_title}>{el.name}</h4>
                                   </dl>
                                   <button
                                       className={styles.btnChange}

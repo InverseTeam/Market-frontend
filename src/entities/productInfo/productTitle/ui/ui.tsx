@@ -1,33 +1,35 @@
 'use client';
 
 import styles from './ui.module.scss';
-import { useState } from 'react';
 import { Textarea, ThemeContext, ThemeFactory } from '@skbkontur/react-ui';
+import { ProductTitleSkeleton } from '../skeleton';
 export const ProductTitle = ({
     isChange = false,
     title,
+    setTitle,
+    skeleton = false,
 }: {
     isChange?: boolean;
-    title: string;
+    title?: string;
+    setTitle?: (title: string) => void;
+    skeleton?: boolean;
 }) => {
-    const [textareaValue, setTextareaValue] = useState<string>(title);
-
-    const handleTextareaChange = (value: string) => {
-        setTextareaValue(value);
-    };
     return (
         <>
             <ThemeContext.Provider value={myTheme}>
                 {isChange ? (
                     <Textarea
-                        onValueChange={(value: string) => handleTextareaChange(value)}
+                        onValueChange={setTitle}
                         size="medium"
-                        value={textareaValue}
+                        value={title}
                         width="100%"
+                        placeholder="Название товара"
                         autoResize
                     />
-                ) : (
+                ) : title && isChange === false ? (
                     <h1 className={styles.textStyles}>{title}</h1>
+                ) : (
+                    skeleton && <ProductTitleSkeleton />
                 )}
             </ThemeContext.Provider>
         </>

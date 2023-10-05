@@ -65,7 +65,7 @@ export const NavBarElement: FC<NavBarElementProps> = ({
                     <button
                         style={{
                             backgroundColor:
-                                active === id ? 'rgba(255, 216, 170, 0.65)' : 'transparent',
+                                active === id ? 'rgba(253, 225, 194, 1)' : 'transparent',
                             width: '100%',
                         }}
                         className={styles.element}
@@ -84,7 +84,7 @@ export const NavBarElement: FC<NavBarElementProps> = ({
                     <Link
                         style={{
                             backgroundColor:
-                                active === id ? 'rgba(255, 216, 170, 0.65)' : 'transparent',
+                                active === id ? 'rgba(253, 225, 194, 1)' : 'transparent',
                         }}
                         className={styles.element}
                         onClick={setDropDown}

@@ -1,0 +1,21 @@
+.page {
+    display: flex;
+    flex-direction: column;
+
+    background: #faf8f6;
+    margin-left: 270px;
+    height: 100vh;
+    .layout {
+        padding: 32px;
+
+        .page_title {
+            color: #222;
+            font-family: Lab Grotesque;
+            font-size: 26px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: normal;
+            letter-spacing: 0.52px;
+        }
+    }
+}

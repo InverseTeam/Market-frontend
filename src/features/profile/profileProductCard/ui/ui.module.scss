@@ -1,0 +1,38 @@
+.cards__wrap {
+    display: flex;
+    gap: 42px;
+    .card {
+        user-select: none;
+        display: inline-flex;
+        padding: 24px 16px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+        border-radius: 16px;
+        background: #fff;
+        max-width: 256px;
+        .card_header {
+            display: flex;
+            gap: 16px;
+            align-items: center;
+            .header_title {
+                color: #222;
+                font-family: Lab Grotesque;
+                font-size: 18px;
+                font-style: normal;
+                font-weight: 500;
+                line-height: normal;
+                letter-spacing: 0.44px;
+            }
+        }
+        .card_main {
+            color: #222;
+            font-family: Lab Grotesque;
+            font-size: 15px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+            letter-spacing: 0.36px;
+        }
+    }
+}

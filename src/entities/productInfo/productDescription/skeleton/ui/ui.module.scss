@@ -1,0 +1,30 @@
+.sectionWrap {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+    .blockLayout {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        .block_title {
+            width: 94px;
+            height: 24px;
+            background-color: #e7e3dc;
+            border-radius: 4px;
+        }
+        .textStyle {
+            width: 640px;
+            height: 96px;
+            background-color: #e7e3dc;
+            border-radius: 4px;
+        }
+    }
+}
+
+.title {
+    width: 114px;
+    height: 28px;
+    background-color: #e7e3dc;
+    border-radius: 4px;
+}

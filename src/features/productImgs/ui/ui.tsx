@@ -3,8 +3,8 @@
 import styles from './ui.module.scss';
 import { MediaPictureIcon24Regular } from '@skbkontur/icons/MediaPictureIcon24Regular';
 import { TrashCanIcon24Regular } from '@skbkontur/icons/TrashCanIcon24Regular';
+import { ToolPencilIcon24Regular } from '@skbkontur/icons/ToolPencilIcon24Regular';
 import { ProductBigImg } from '@/entities/productInfo/productBigImg';
-import Photo from '../../../../public/img/loaderLogo.png';
 import { ThemeContext, ThemeFactory, Button } from '@skbkontur/react-ui';
 import { StaticImport } from 'next/dist/shared/lib/get-img-props';
 import { useState, useRef } from 'react';
@@ -19,16 +19,15 @@ export const ProductImgs = ({ isChange = false }: { isChange?: boolean }) => {
             const file = event.target.files[0];
             setSelectedImg(URL.createObjectURL(file));
             setSelectedFile(file);
+            setIsUploading(true);
         }
     };
     const handleUpload = async () => {
-        setIsUploading(true);
         try {
             if (!selectedFile) return;
             const formData = new FormData();
             formData.append('productImg', selectedFile);
             const { data } = await instanceLogged.post('/api/sendimga', formData);
-            console.log(data);
         } catch (er: any) {
             console.log(er.response?.data);
         }
@@ -47,41 +46,53 @@ export const ProductImgs = ({ isChange = false }: { isChange?: boolean }) => {
             <ThemeContext.Provider value={myTheme}>
                 <section className={styles.layout}>
                     <span className={styles.bigImgStyles}>
-                        {selectedFile && isUploading === false ? (
-                            <ProductBigImg newImg={selectedImg} defaultImg={Photo} />
-                        ) : (
-                            <ProductBigImg newImg={Photo} defaultImg={Photo} />
-                        )}
-                    </span>
-                    {isChange && (
-                        <span className={styles.btnLayout}>
-                            <input
-                                type="file"
-                                hidden
-                                ref={filePicker}
-                                onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
-                                    handleChange(event)
-                                }
+                        {
+                            <ProductBigImg
+                                newImg={selectedFile && isUploading ? selectedImg : undefined}
                             />
+                        }
+                    </span>
+
+                    {isChange && (
+                        <>
+                            <span className={styles.btnLayout}>
+                                <input
+                                    type="file"
+                                    hidden
+                                    ref={filePicker}
+                                    accept="image/*"
+                                    onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
+                                        handleChange(event)
+                                    }
+                                />
+                                <Button
+                                    onClick={handlePick}
+                                    disabled={isUploading}
+                                    loading={isUploading}
+                                    icon={<MediaPictureIcon24Regular />}
+                                    size="large"
+                                    borderless
+                                    width="100%"
+                                    use="primary">
+                                    Изменить фото
+                                </Button>
+                                <Button
+                                    icon={<TrashCanIcon24Regular />}
+                                    use="danger"
+                                    size="large"
+                                    borderless
+                                    width="100%">
+                                    Удалить товар
+                                </Button>
+                            </span>
                             <Button
-                                onClick={handlePick}
-                                disabled={isUploading}
-                                loading={isUploading}
-                                icon={<MediaPictureIcon24Regular />}
-                                size="large"
-                                borderless
-                                width="100%"
-                                use="primary">
-                                Выбрать фото
-                            </Button>
-                            <Button
-                                title="Удаляет продукт с вывески"
-                                icon={<TrashCanIcon24Regular />}
+                                use="backless"
+                                icon={<ToolPencilIcon24Regular />}
                                 size="large"
                                 width="100%">
-                                Удалить
+                                Применить изменения
                             </Button>
-                        </span>
+                        </>
                     )}
                 </section>
             </ThemeContext.Provider>
@@ -102,4 +113,7 @@ const myTheme = ThemeFactory.create({
     btnIconColor: '#FF9A42',
     btnDefaultBorderColor: '#FF9A42',
     btnDefaultTextColor: '#FF9A42',
+    btnDangerBg: '#FD7163',
+    btnDangerHoverBg: '#FF5A49',
+    btnDangerActiveBg: '#FD7163',
 });

@@ -1,53 +1,46 @@
 'use client';
 
 import styles from './ui.module.scss';
-import { useState } from 'react';
 import { ThemeContext, ThemeFactory, Input } from '@skbkontur/react-ui';
+import { ProductCaloriesStatSkeleton } from '../skeleton';
 export const ProductCaloriesStat = ({
     isChange = false,
     kcal,
     squirrels,
     fats,
     carbohydrates,
+    setCarbohydrates,
+    setFats,
+    setKcal,
+    setSquirrels,
+    skeleton = false,
 }: {
     isChange?: boolean;
-    kcal: string;
-    squirrels: string;
-    fats: string;
-    carbohydrates: string;
+    kcal?: string;
+    setKcal?: (kcal: string) => void;
+    setSquirrels?: (squirrels: string) => void;
+    setFats?: (fats: string) => void;
+    setCarbohydrates?: (carbohydrates: string) => void;
+    squirrels?: string;
+    fats?: string;
+    carbohydrates?: string;
+    skeleton?: boolean;
 }) => {
-    const [textAreaKcal, setKcal] = useState<string>(kcal);
-    const [textAreaSquirrels, setSquirrels] = useState<string>(squirrels);
-    const [textAreaFats, setFats] = useState<string>(fats);
-    const [textAreaCarbohydrates, setCarbohydrates] = useState<string>(carbohydrates);
-    const handleKcalChange = (value: string) => {
-        setKcal(value);
-    };
-
-    const handleSquirrelsChange = (value: string) => {
-        setSquirrels(value);
-    };
-
-    const handleFatsChange = (value: string) => {
-        setFats(value);
-    };
-
-    const handleCarbohydratesChange = (value: string) => {
-        setCarbohydrates(value);
-    };
     return (
         <>
             <ThemeContext.Provider value={myTheme}>
                 <div>
-                    <h3 className={styles.title} style={{ marginBottom: '16px' }}>
-                        На 100 граммов
-                    </h3>
-                    {isChange ? (
+                    {skeleton ? null : (
+                        <h3 className={styles.title} style={{ marginBottom: '16px' }}>
+                            На 100 граммов
+                        </h3>
+                    )}
+                    {isChange && skeleton === false ? (
                         <section className={styles.statSectionWrap}>
                             <span className={styles.columnWrap}>
                                 <Input
-                                    onValueChange={(value: string) => handleKcalChange(value)}
-                                    value={textAreaKcal}
+                                    onValueChange={setKcal}
+                                    value={kcal}
                                     size="medium"
                                     width="96px"
                                     type="number"
@@ -56,8 +49,8 @@ export const ProductCaloriesStat = ({
                             </span>
                             <span className={styles.columnWrap}>
                                 <Input
-                                    onValueChange={(value: string) => handleSquirrelsChange(value)}
-                                    value={textAreaSquirrels}
+                                    onValueChange={setSquirrels}
+                                    value={squirrels}
                                     size="medium"
                                     width="96px"
                                     type="number"
@@ -66,8 +59,8 @@ export const ProductCaloriesStat = ({
                             </span>
                             <span className={styles.columnWrap}>
                                 <Input
-                                    onValueChange={(value: string) => handleFatsChange(value)}
-                                    value={textAreaFats}
+                                    onValueChange={setFats}
+                                    value={fats}
                                     size="medium"
                                     width="96px"
                                     type="number"
@@ -79,15 +72,13 @@ export const ProductCaloriesStat = ({
                                     size="medium"
                                     type="number"
                                     width="96px"
-                                    onValueChange={(value: string) =>
-                                        handleCarbohydratesChange(value)
-                                    }
-                                    value={textAreaCarbohydrates}
+                                    onValueChange={setCarbohydrates}
+                                    value={carbohydrates}
                                 />
                                 <h5 className={styles.infoStyles}>углеводы</h5>
                             </span>
                         </section>
-                    ) : (
+                    ) : isChange === false && skeleton === false ? (
                         <section className={styles.statSectionWrap}>
                             <span className={styles.columnWrap}>
                                 <h4 className={styles.textStyles}>{kcal}</h4>
@@ -106,6 +97,8 @@ export const ProductCaloriesStat = ({
                                 <h5 className={styles.infoStyles}>углеводы</h5>
                             </span>
                         </section>
+                    ) : (
+                        skeleton && <ProductCaloriesStatSkeleton />
                     )}
                 </div>
             </ThemeContext.Provider>

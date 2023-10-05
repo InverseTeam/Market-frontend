@@ -1,0 +1,27 @@
+.statSectionWrap {
+    display: flex;
+    gap: 40px;
+    width: 100%;
+    .columnWrap {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+        align-items: flex-start;
+
+        .textStyles {
+            background-color: #e7e3dc;
+            width: 87px;
+            height: 60px;
+            flex-shrink: 0;
+            border-radius: 4px;
+        }
+    }
+}
+
+.title {
+    background-color: #e7e3dc;
+    width: 197px;
+    height: 26px;
+    flex-shrink: 0;
+    border-radius: 4px;
+}
