@@ -28,6 +28,7 @@ export const ProductImgs = ({
             const file = event.target.files[0];
             setURLImg(URL.createObjectURL(file));
             setSelectedFile(file);
+            handleUpload();
             setIsUploading(true);
         }
     };
@@ -35,10 +36,14 @@ export const ProductImgs = ({
         try {
             if (!selectedFile) return;
             const formData = new FormData();
-            formData.append('productImg', selectedFile);
-            const { data } = await instanceLogged.post(`/products/${pageID}/`, formData);
+            formData.append('cover', selectedFile);
+            await instanceLogged.patch(`/products/${pageID}/`, formData, {
+                headers: {
+                    'Content-Type': 'multipart/form-data',
+                },
+            });
         } catch (er: any) {
-            return er;
+            console.log(er);
         }
         setIsUploading(false);
     };
@@ -47,7 +52,6 @@ export const ProductImgs = ({
         if (filePicker.current) {
             filePicker.current.click();
         } else return;
-        handleUpload();
     };
 
     return (

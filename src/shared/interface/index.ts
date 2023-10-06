@@ -51,7 +51,7 @@ export interface ProductTypes {
     weight: string;
     start_price: string;
     current_price: string;
-    amount: number;
+    amount: string;
     compound: string;
     expiration: string;
 }

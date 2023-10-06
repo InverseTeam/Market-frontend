@@ -23,16 +23,9 @@ export const ProductChangePage = ({
 }) => {
     const [isChange, setIsChange] = useState<boolean>(isPageChange);
     const productID = params?.id;
-    useEffect(() => {
-        const getProduct = async () => {
-            const fetchEvent: ProductTypes = await GetProduct(productID);
-            setProductData(fetchEvent);
-        };
-        getProduct();
-    }, []);
     const [productData, setProductData] = useState<ProductTypes | null>(null);
     const [productCover, setProductCover] = useState<string>();
-    const [productTitle, setProductTitle] = useState<string>(productData?.name || '');
+    const [productTitle, setProductTitle] = useState<string>('');
     const [productCategory, setProductCategory] = useState<string>();
     const [startPrice, setStartPrice] = useState<string>();
     const [currentPrice, setCurrentPrice] = useState<string>();
@@ -48,6 +41,49 @@ export const ProductChangePage = ({
     const [storageConditions, setStorageConditions] = useState<string>();
     const [btnDisabled, setBtnDisabled] = useState<boolean>(true);
     const [shop, setShop] = useState<string>();
+    const imgURL = 'https://market.inverse-team.store';
+    useEffect(() => {
+        const getProduct = async () => {
+            const fetchEvent: ProductTypes = await GetProduct(productID);
+            setProductData(fetchEvent);
+        };
+        getProduct();
+    }, []);
+
+    useEffect(() => {
+        if (productData) {
+            setProductTitle(productData.name || '');
+
+            setProductCategory(productData.category.name || '');
+
+            setStartPrice(productData.start_price || '');
+
+            setCurrentPrice(productData.current_price || '');
+
+            setIsOnSale(true || false);
+
+            setQuantity(productData.amount || '');
+
+            setKcal(productData.calories || '');
+
+            setFats(productData.fats || '');
+
+            setSquirrels(productData.protein || '');
+
+            setCarbohydrates(productData.carbohydrates || '');
+
+            setDescription(productData.description || '');
+
+            setCompound(productData.compound || '');
+
+            setWeight(productData.weight || '');
+
+            setStorageConditions(productData.expiration || 'Отсутствует');
+
+            setProductCover(imgURL + productData.cover || 'Отсутствует');
+        }
+    }, [productData]);
+
     const checkParams =
         productCover &&
         productTitle &&
