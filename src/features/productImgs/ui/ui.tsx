@@ -6,18 +6,27 @@ import { TrashCanIcon24Regular } from '@skbkontur/icons/TrashCanIcon24Regular';
 import { ToolPencilIcon24Regular } from '@skbkontur/icons/ToolPencilIcon24Regular';
 import { ProductBigImg } from '@/entities/productInfo/productBigImg';
 import { ThemeContext, ThemeFactory, Button } from '@skbkontur/react-ui';
-import { StaticImport } from 'next/dist/shared/lib/get-img-props';
 import { useState, useRef } from 'react';
 import { instanceLogged } from '@/shared/api/axios';
-export const ProductImgs = ({ isChange = false }: { isChange?: boolean }) => {
-    const [selectedImg, setSelectedImg] = useState<string | StaticImport>('');
+export const ProductImgs = ({
+    isChange = false,
+    img,
+    setURLImg,
+    pageID,
+}: {
+    isChange?: boolean;
+    img?: string;
+    setURLImg?: (img: string) => void;
+    pageID?: number;
+}) => {
     const [selectedFile, setSelectedFile] = useState<File | null>(null);
     const [isUploading, setIsUploading] = useState(false);
     const filePicker = useRef<HTMLInputElement | null>(null);
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        if (!setURLImg) return;
         if (event.target.files && event.target.files.length > 0) {
             const file = event.target.files[0];
-            setSelectedImg(URL.createObjectURL(file));
+            setURLImg(URL.createObjectURL(file));
             setSelectedFile(file);
             setIsUploading(true);
         }
@@ -27,7 +36,7 @@ export const ProductImgs = ({ isChange = false }: { isChange?: boolean }) => {
             if (!selectedFile) return;
             const formData = new FormData();
             formData.append('productImg', selectedFile);
-            const { data } = await instanceLogged.post('/api/sendimga', formData);
+            const { data } = await instanceLogged.post(`/products/${pageID}/`, formData);
         } catch (er: any) {
             return er;
         }
@@ -48,7 +57,7 @@ export const ProductImgs = ({ isChange = false }: { isChange?: boolean }) => {
                     <span className={styles.bigImgStyles}>
                         {
                             <ProductBigImg
-                                newImg={selectedFile && isUploading ? selectedImg : undefined}
+                                newImg={img ? img : selectedFile && isUploading ? img : undefined}
                             />
                         }
                     </span>

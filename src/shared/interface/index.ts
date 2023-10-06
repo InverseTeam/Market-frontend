@@ -44,6 +44,16 @@ export interface ProductTypes {
         name: string;
     };
     shop: ShopTypes;
+    calories: string;
+    protein: string;
+    fats: string;
+    carbohydrates: string;
+    weight: string;
+    start_price: string;
+    current_price: string;
+    amount: number;
+    compound: string;
+    expiration: string;
 }
 
 export interface ProductCategory {

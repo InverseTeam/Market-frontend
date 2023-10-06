@@ -5,10 +5,10 @@ import styles from './ui.module.scss';
 import { Filter } from '@/entities/icons/filter';
 import { useState, useEffect } from 'react';
 import { Get } from '../data';
-import { ProductCategoryTypes } from '@/shared/interface';
+import { ProductCategory } from '@/shared/interface';
 export const SearchAndFilter = () => {
     const [filterOpen, setFilterOpen] = useState<boolean>(false);
-    const [categoryData, setCategoryData] = useState<ProductCategoryTypes[] | null>(null);
+    const [categoryData, setCategoryData] = useState<ProductCategory[] | null>(null);
     const [checkBoxStates, setCheckBoxStates] = useState(
         Array.isArray(categoryData)
             ? categoryData?.map((el) => ({ id: el.id, checked: false }))
@@ -33,7 +33,7 @@ export const SearchAndFilter = () => {
                 <Modal width="512px" className={styles.modal} onClose={() => setFilterOpen(false)}>
                     <Modal.Header>Категории</Modal.Header>
                     <Modal.Body className={styles.modalBody}>
-                        {categoryData?.map((el: ProductCategoryTypes) => {
+                        {categoryData?.map((el: ProductCategory) => {
                             const checkboxState = checkBoxStates?.find(
                                 (checkbox) => checkbox.id === el.id,
                             );
@@ -68,7 +68,7 @@ export const SearchAndFilter = () => {
     }
     useEffect(() => {
         const getEvent = async () => {
-            const fetchEvent: ProductCategoryTypes[] = await Get();
+            const fetchEvent: ProductCategory[] = await Get();
             setCategoryData(fetchEvent);
         };
         getEvent();

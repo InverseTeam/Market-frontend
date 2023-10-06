@@ -1,9 +1,9 @@
 import { ProductPreviewPage } from '@/widgets/productPreview';
 
-export default function Page() {
+export default function Page({ params }: { params: { id: number } }) {
     return (
         <>
-            <ProductPreviewPage />
+            <ProductPreviewPage params={params} />
         </>
     );
 }
