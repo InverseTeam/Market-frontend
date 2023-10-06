@@ -41,7 +41,7 @@ export const middleSectionElements: NavBarElementProps[] = [
     {
         id: 2,
         title: 'Заказы',
-        link: '/',
+        link: '/admin/orders',
         icon: Bag,
     },
 ];

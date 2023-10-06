@@ -29,7 +29,7 @@ export const ProductImgs = ({ isChange = false }: { isChange?: boolean }) => {
             formData.append('productImg', selectedFile);
             const { data } = await instanceLogged.post('/api/sendimga', formData);
         } catch (er: any) {
-            console.log(er.response?.data);
+            return er;
         }
         setIsUploading(false);
     };

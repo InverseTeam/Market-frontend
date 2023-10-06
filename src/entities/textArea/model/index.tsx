@@ -5,7 +5,6 @@ export function getTextAreaHeight(params: GetTextAreaHeightParams) {
     if (!node) {
         return { height: 0, exceededMaxHeight: false };
     }
-    console.log(node);
     const style: CSSStyleDeclaration = getComputedStyle(node);
     const borderTop = style.borderTopWidth ? parseInt(style.borderTopWidth, 10) : 0;
     const borderBottom = style.borderBottomWidth ? parseInt(style.borderBottomWidth, 10) : 0;

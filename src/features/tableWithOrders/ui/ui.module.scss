@@ -1,0 +1,78 @@
+.layout {
+    border-radius: 20px;
+    background: #fff;
+    padding-top: 28px;
+    padding-right: 48px;
+    width: 100%;
+
+    .tableHeader {
+        color: #74757a;
+        font-family: Lab Grotesque;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+        letter-spacing: normal;
+    }
+    .tableElement {
+        font-family: Lab Grotesque;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        letter-spacing: 0.36px;
+        transition: all 0.2s;
+    }
+
+    .tableElement__grey {
+        color: #757575;
+        font-family: Lab Grotesque;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+        letter-spacing: 0.36px;
+    }
+
+    .border {
+        border-bottom: 1px solid #000 !important;
+    }
+
+    .tableElementLayout {
+        display: flex;
+        gap: 8px;
+        align-items: center;
+    }
+}
+
+.border {
+    border-bottom: 1px solid #000 !important;
+}
+
+.table__body {
+    cursor: pointer;
+}
+
+.documentElement {
+    color: #222;
+    font-family: Lab Grotesque;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.36px;
+    transition: all 0.2s;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+.bold {
+    color: #222;
+    font-family: Lab Grotesque;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}

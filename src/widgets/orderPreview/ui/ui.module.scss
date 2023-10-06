@@ -1,0 +1,32 @@
+.mainLayout {
+    margin-top: 32px;
+    margin-left: 320px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    .header {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        .orderNumber {
+            color: #222;
+            font-family: Lab Grotesque;
+            font-size: 26px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: normal;
+        }
+        .orderStatus {
+            color: #222;
+            font-family: Lab Grotesque;
+            font-size: 24px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: normal;
+            .orangeStatus {
+                color: #ff8d28;
+            }
+        }
+    }
+}

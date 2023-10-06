@@ -166,7 +166,7 @@ export const TextArea: FC<TextAreaComponentProps> = ({
         });
 
         if (textareaRef.current) {
-            console.log(height, '|', exceededMaxHeight);
+            
             textareaRef.current.style.height = height + 'px';
             textareaRef.current.style.overflowY = exceededMaxHeight ? 'scroll' : 'hidden';
         }

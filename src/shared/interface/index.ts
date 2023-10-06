@@ -19,37 +19,62 @@ export interface UserOrganization {
     name: string;
 }
 
+export interface OrderProductsTypes {
+    id: number;
+    product: ProductTypes;
+    calories: number;
+    protein: number;
+    fats: number;
+    carbohydёrates: number;
+    weight: number;
+    start_price: number;
+    current_price: number;
+    amount: number;
+    compound: string;
+    expiration: string;
+}
+
 export interface ProductTypes {
     id: number;
     cover: string;
     name: string;
     description: string;
-    category: ProductCategoryTypes;
-    shop: ProductShop;
-    compound: string;
-    calories: number;
-    protein: number;
-    fats: number;
-    carbohydrates: number;
-    weight: number;
-    start_price: number;
-    current_price: number;
-    amount: number;
-    expiration: number;
+    category: {
+        id: number;
+        name: string;
+    };
+    shop: ShopTypes;
 }
 
-export interface ProductCategoryTypes {
+export interface ProductCategory {
     id: number;
     name: string;
 }
 
-export interface ProductShop {
+export interface ShopTypes {
     id: number;
     name: string;
-    category: ShopCategory;
+    category: {
+        id: number;
+        name: string;
+    };
 }
 
-export interface ShopCategory {
+export interface OrderTypes {
+    id: number;
+    order_products: ProductTypes[];
+    order_datetime: string;
+    delivery_time: string;
+    delivery_price: string;
+    total_price: string;
+    total_weight: string;
+    fast: boolean;
+    status: OrderStatusType;
+    need_change: boolean;
+}
+
+export interface OrderStatusType {
     id: number;
     name: string;
+    status_type: string;
 }

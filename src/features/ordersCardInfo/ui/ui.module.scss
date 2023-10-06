@@ -1,0 +1,40 @@
+.card {
+    border-radius: 16px;
+    background: #f8f8f8;
+
+    display: flex;
+    width: 512px;
+    padding: 24px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+
+    .header {
+        color: #222;
+        font-family: Lab Grotesque;
+        font-size: 22px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+    }
+    .main {
+        display: flex;
+        gap: 10px;
+        flex-direction: column;
+    }
+}
+.orange {
+    color: #ff8d28;
+    font-family: Lab Grotesque;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.stock {
+    width: 449px;
+    height: 1.5px;
+
+    background: rgba(0, 0, 0, 0.15);
+}

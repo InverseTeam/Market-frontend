@@ -4,7 +4,6 @@ import { ThemeContext, ThemeFactory, Input, Modal, Checkbox, Button } from '@skb
 import styles from './ui.module.scss';
 import { Filter } from '@/entities/icons/filter';
 import { useState, useEffect } from 'react';
-
 import { Get } from '../data';
 import { ProductCategoryTypes } from '@/shared/interface';
 export const SearchAndFilter = () => {

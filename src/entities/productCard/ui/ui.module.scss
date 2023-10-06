@@ -26,6 +26,7 @@
     .img {
         margin-left: auto;
         margin-right: auto;
+        border-radius: 12px;
     }
     .prodInfo_position {
         display: flex;
@@ -75,11 +76,13 @@
 
     .list {
         display: flex;
-        gap: 32px;
+        gap: 8px;
+
         overflow-x: auto;
         list-style: none;
         padding: 0;
         margin: 0;
+        flex-direction: column;
 
         &::-webkit-scrollbar {
             width: 0;
@@ -111,4 +114,15 @@
         cursor: pointer;
         background: #ff9e2e;
     }
+}
+
+.categoryStyle {
+    margin-top: 16px;
+    color: #222;
+    font-family: Lab Grotesque;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px;
+    margin-bottom: 8px;
 }

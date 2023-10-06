@@ -31,9 +31,8 @@ export const UpdateProductCover = async (productId: string, newCover: any) => {
         formData.append('cover', newCover);
         const response = await instanceLogged.put(`/product/${productId}`, formData);
 
-        console.log(response.data);
         return response.data;
     } catch (error) {
-        console.log(error);
+        return error;
     }
 };
