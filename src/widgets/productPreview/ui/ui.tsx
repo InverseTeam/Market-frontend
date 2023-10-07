@@ -5,7 +5,6 @@ import { useEffect, useState } from 'react';
 import { ProductTitle } from '@/entities/productInfo/productTitle';
 import { ProductCaloriesStat } from '@/entities/productInfo/productCaloriesStat';
 import { ProductDescription } from '@/entities/productInfo/productDescription';
-import { ProductQuantity } from '@/entities/productInfo/productQuantity';
 import { GetProduct } from '../model';
 
 import { ProductImgs } from '@/features/productImgs';

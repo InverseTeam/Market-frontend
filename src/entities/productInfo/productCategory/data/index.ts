@@ -9,7 +9,7 @@ export const selectItems: string[] = [
 ];
 
 import { instanceLogged } from '@/shared/api/axios';
-import { ProductCategoryTypes } from '@/shared/interface';
+import { ProductCategory } from '@/shared/interface';
 
 export const Get = async () => {
     try {
@@ -25,7 +25,7 @@ export const GetCategoryNames = async () => {
         const categories = await Get();
         let categoryNames;
         if (Array.isArray(categories)) {
-            categoryNames = categories.map((category: ProductCategoryTypes) => category.name);
+            categoryNames = categories.map((category: ProductCategory) => category.name);
         } else if (typeof categories === 'object') {
             categoryNames = categories.name;
         }

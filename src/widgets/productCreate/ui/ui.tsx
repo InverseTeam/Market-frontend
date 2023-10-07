@@ -7,7 +7,7 @@ import { ProductCaloriesStat } from '@/entities/productInfo/productCaloriesStat'
 import { ProductDescription } from '@/entities/productInfo/productDescription';
 import { SaleToggle } from '@/entities/productInfo/saleToggle';
 import { ProductQuantity } from '@/entities/productInfo/productQuantity';
-import { ProductCategory } from '@/entities/productInfo/productCategory';
+import { ProductCategoryPage } from '@/entities/productInfo/productCategory';
 import { CreateImg } from '@/features/createImg';
 import { ProductPrice } from '@/entities/productInfo/productPrice';
 import { GetShop, findUserCategory } from '../model';
@@ -109,7 +109,7 @@ export const ProductCreatePage = ({ isPageChange = true }: { isPageChange?: bool
                             title={productTitle}
                             isChange={isChange}
                         />
-                        <ProductCategory
+                        <ProductCategoryPage
                             productCategory={productCategory}
                             setProductCategory={setProductCategory}
                         />

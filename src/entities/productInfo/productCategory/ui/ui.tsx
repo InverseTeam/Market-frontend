@@ -2,20 +2,20 @@
 import { useState, useEffect } from 'react';
 import styles from './ui.module.scss';
 import { ThemeContext, ThemeFactory, Select } from '@skbkontur/react-ui';
-import { ProductCategoryTypes } from '@/shared/interface';
+import { ProductCategory } from '@/shared/interface';
 import { GetCategoryNames } from '../data';
 
-export const ProductCategory = ({
+export const ProductCategoryPage = ({
     productCategory,
     setProductCategory,
 }: {
     productCategory?: string;
     setProductCategory?: (value: string) => void;
 }) => {
-    const [selectItems, setSelectItems] = useState<ProductCategoryTypes[]>([]);
+    const [selectItems, setSelectItems] = useState<ProductCategory[]>([]);
     useEffect(() => {
         const getEvent = async () => {
-            const fetchEvent: ProductCategoryTypes[] = await GetCategoryNames();
+            const fetchEvent: ProductCategory[] = await GetCategoryNames();
             setSelectItems(fetchEvent);
         };
         getEvent();

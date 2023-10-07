@@ -10,7 +10,7 @@ import { ProductDescription } from '@/entities/productInfo/productDescription';
 import { SaleToggle } from '@/entities/productInfo/saleToggle';
 import { ProductTypes } from '@/shared/interface';
 import { GetProduct } from '../model';
-import { ProductCategory } from '@/entities/productInfo/productCategory';
+import { ProductCategoryPage } from '@/entities/productInfo/productCategory';
 import { ProductPrice } from '@/entities/productInfo/productPrice';
 import { ProductQuantity } from '@/entities/productInfo/productQuantity';
 
@@ -126,7 +126,7 @@ export const ProductChangePage = ({
                             title={productTitle}
                             isChange={isChange}
                         />
-                        <ProductCategory
+                        <ProductCategoryPage
                             productCategory={productCategory}
                             setProductCategory={setProductCategory}
                         />
