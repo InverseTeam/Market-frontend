@@ -2,7 +2,7 @@ import { NavBarElementProps } from '@/entities/header/navBarElement';
 import Goods from '../../../../public/globalIcons/goods.svg';
 import Stat from '../../../../public/globalIcons/statistics.svg';
 import User from '../../../../public/globalIcons/user.svg';
-import Bag from '../../../../public/globalIcons/Bag.svg';
+import Bag from '../../../../public/globalIcons/bag.svg';
 export const middleSectionElements: NavBarElementProps[] = [
     {
         id: 0,
