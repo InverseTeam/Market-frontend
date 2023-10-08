@@ -38,7 +38,8 @@ export const TableWithOrders = () => {
                                 <td align="left" className={styles.tableHeader}></td>
                             </tr>
                             {orders?.map((element: OrderTypes) => {
-                                const formattedDate = moment(element.order_datetime).format(
+                                console.log(element.order_datetime);
+                                const formattedDate = moment(element?.order_datetime).format(
                                     'DD.MM.YY HH:mm',
                                 );
                                 return (
